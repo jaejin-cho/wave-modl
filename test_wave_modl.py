@@ -16,12 +16,10 @@ import  library_common      as  mf
 import  library_modl        as  mm
 import  library_wave        as  mw
 
-
 ##########################################################
 # %%
 # data download
 ##########################################################
-
 if os.path.exists('data/data.npz')==False:
     os.system("wget -O data/data.npz https://www.dropbox.com/s/vs8v3blc1v08fv0/data.npz?dl=1")
 
@@ -39,7 +37,7 @@ Gwy         = 16.5118*1e-3      # T/m
 Cwy         = 5                 # of cycle
 Gwz         = 16.5118*1e-3      # T/m
 Cwz         = 5                 # of cycle
-zpadf       = 1.2               # 
+zpadf       = 1.2               # fixed value 
 
 num_block   = 10
 nLayers     = 5
@@ -109,13 +107,17 @@ L_modl          =   mf.nrmse_loss(ref, P_modl).numpy()
 L_wave_caipi    =   mf.nrmse_loss(ref, P_wave_caipi).numpy()
 L_wave_modl     =   mf.nrmse_loss(ref, P_wave_modl).numpy()
 
-
 ##########################################################
 # %%
-# diplay the results
+# diplay results
 ##########################################################
-
 mf.mosaic(I_sens[:,:,1,:],1,ne,1,[0,1],'SENSE NRMSE : %.2f' % L_sens)
 mf.mosaic(I_modl[:,:,1,:],1,ne,2,[0,1],'MoDL NRMSE : %.2f' % L_modl)
 mf.mosaic(I_wave_caipi[:,:,1,:],1,ne,3,[0,1],'Wave-CAIPI NRMSE : %.2f' % L_wave_caipi)
 mf.mosaic(I_wave_modl[:,:,1,:],1,ne,4,[0,1],'Wave MoDL NRMSE : %.2f' % L_wave_modl)
+
+##########################################################
+# %%
+# save results
+##########################################################
+np.savez('results/result.npz', I_sens = I_sens, I_modl = I_modl, I_wave_caipi = I_wave_caipi, I_wave_modl = I_wave_modl )
