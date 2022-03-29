@@ -16,6 +16,15 @@ import  library_common      as  mf
 import  library_modl        as  mm
 import  library_wave        as  mw
 
+
+##########################################################
+# %%
+# data download
+##########################################################
+
+if os.path.exists('data/data.npz')==False:
+    os.system("wget -O data/data.npz https://www.dropbox.com/s/vs8v3blc1v08fv0/data.npz?dl=1")
+
 ##########################################################
 # %%
 # parameters
