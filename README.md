@@ -1,4 +1,4 @@
-# wave-modl
+# Wave-MoDL
 
 ![My Image](GraphicalAbstract.png)
 
