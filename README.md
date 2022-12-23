@@ -1,5 +1,7 @@
 # wave-modl
 
+![My Image](GraphicalAbstract.png)
+
 ### Journal paper
 https://doi.org/10.3390/bioengineering9120736 <br />
 
